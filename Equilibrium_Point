@@ -1,0 +1,18 @@
+class Solution:
+    # Complete this function
+    
+    #Function to find equilibrium point in the array.
+    def equilibriumPoint(self,A, N):
+        # Your code here
+        tot_sum = sum(A)   sum=13 ,12,9,4
+        l_sum = 0  		1,4
+        
+        for i in range(N):
+            tot_sum -= A[i]
+            
+            if l_sum == tot_sum:
+                return i+1
+                
+            l_sum += A[i]
+            
+        return -1
