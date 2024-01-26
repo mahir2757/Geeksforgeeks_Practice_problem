@@ -1,0 +1,20 @@
+class Solution:
+    
+    #Function to check whether a Binary Tree is BST or not.
+    def isBST(self, root):
+        #code here
+        temp = []    # Create an empty list to store the values of the nodes in the tree
+        
+        def bst(root,temp):
+            if root:
+                bst(root.left,temp)     # Traverse the left subtree
+                temp.append(root.data)  # Append the value of the current node
+                bst(root.right,temp)    # Traverse the right subtree
+                
+        bst(root,temp)   # Call the recursive BST function to populate the 'temp' list with node values
+        
+        for i in range(1,len(temp)):
+            if temp[i] <= temp[i-1]:  # Check if the values are not in ascending order
+                return False
+                
+        return True   # If the loop completes without returning False, the tree is a BST
